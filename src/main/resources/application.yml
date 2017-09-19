@@ -1,0 +1,15 @@
+server:
+  port: 8080
+keycloak:
+  realm: "myrealm"
+  auth-server-url: "https://domain.com/auth"
+  ssl-required: "external"
+  resource: "myagent"
+  public-client: true
+  bearer-only: true
+  enabled: true
+  securityConstraints:
+    - securityCollections:
+      - name: "info_resource"
+        patterns: ["/info","/secure/*"]
+      authRoles: ["user"]
